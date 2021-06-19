@@ -1,0 +1,28 @@
+<h1>Edit User</h1>
+
+  <div>
+    <ul>
+      <% @user.errors.full_messages_for(:email).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <% @user.errors.full_messages_for(:username).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <% @user.errors.full_messages_for(:password).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+
+<%= form_with model: @user do |form| %>
+  <%= form.label :email, "Your email here:" %>
+  <%= form.text_field :email %>
+  <br><br>
+  <%= form.label :username, "Your user name here:" %>
+  <%= form.text_field :username %>
+  <br><br>
+  <%= form.label :password, "Your password here:" %>
+  <%= form.password_field :password %>
+  <br><br>
+  <%= form.submit "Submit" %>
+<% end %>

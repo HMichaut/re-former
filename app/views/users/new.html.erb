@@ -1,5 +1,19 @@
 <h1>New User</h1>
 
+  <div>
+    <ul>
+      <% @user.errors.full_messages_for(:email).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <% @user.errors.full_messages_for(:username).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      <% @user.errors.full_messages_for(:password).each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+
 <!--
 <form action="/users" method="post" accept-charset="UTF-8">
 
@@ -44,5 +58,5 @@
   <%= form.label :password, "Your password here:" %>
   <%= form.password_field :password, placeholder: "sample password" %>
   <br><br>
-  <%= form.submit "Search" %>
+  <%= form.submit "Submit" %>
 <% end %>
